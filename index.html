@@ -4,38 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>calc</title>
 </head>
-<body>
+<body class="">
     <div class="container">
-        <div class="themes">
+        <div class="header">
+            <div class="logo">
+                calc
+            </div>
+            <div class="themes">
+                <p>THEME</p>
+                <div class="toggle">
+                    <p>1 2 3</p>
+                    <div class="toggle-btn">
+                        <div class="ball"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="screen">
             <p></p>
         </div>
         <div class="buttons">
-            <div class="btn">7</div>
-            <div class="btn">8</div>
-            <div class="btn">9</div>
-            <div class="del">DEL</div>
-            <div class="btn">4</div>
-            <div class="btn">5</div>
-            <div class="btn">6</div>
-            <div class="btn">+</div>
-            <div class="btn">1</div>
-            <div class="btn">2</div>
-            <div class="btn">3</div>
-            <div class="btn">-</div>
-            <div class="btn">.</div>
-            <div class="btn">0</div>
-            <div class="btn">/</div>
-            <div class="btn">*</div>
-            <div class="reset">RESET</div>
-            <div class="eq">=</div>
+            <div class="btn clickable">7</div>
+            <div class="btn clickable">8</div>
+            <div class="btn clickable">9</div>
+            <div class="del clickable">DEL</div>
+            <div class="btn clickable">4</div>
+            <div class="btn clickable">5</div>
+            <div class="btn clickable">6</div>
+            <div class="btn clickable">+</div>
+            <div class="btn clickable">1</div>
+            <div class="btn clickable">2</div>
+            <div class="btn clickable">3</div>
+            <div class="btn clickable">-</div>
+            <div class="btn clickable">.</div>
+            <div class="btn clickable">0</div>
+            <div class="btn clickable">/</div>
+            <div class="btn clickable">*</div>
+            <div class="reset clickable">RESET</div>
+            <div class="eq clickable">=</div>
         </div>
     </div>
-
     <script src="js.js"></script>
 </body>
 </html>

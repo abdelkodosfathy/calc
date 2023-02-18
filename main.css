@@ -2,6 +2,8 @@
     margin:0;
     padding: 0;
     box-sizing: 0;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
 }
 :root {
     /*theme 1*/
@@ -19,30 +21,109 @@
     --grayish-shadow: hsl(28, 16%, 65%);
 
     --text-dark:hsl(221, 14%, 31%);
+    --text-screen:hsl(0, 0%, 100%);
+    --text-white: hsl(0, 0%, 100%);
+}
+.theme-two {
+    --main-background: hsl(0, 0%, 90%);
+    --keypad-background: hsl(0, 5%, 81%);
+    --screen-background: hsl(0, 0%, 93%);
+
+    --dark-key-background: hsl(185, 42%, 37%);
+    --dark-key-shadow: hsl(185, 58%, 25%);
+
+    --red-key-background: hsl(25, 98%, 40%);
+    --red-key-shadow: hsl(25, 99%, 27%);
+
+    --grayish-background: hsl(45, 7%, 89%);
+    --grayish-shadow: hsl(35, 11%, 61%);
+
+    --text-dark:hsl(60, 10%, 19%);
+    --text-screen:hsl(60, 10%, 19%);
+    --text-white: hsl(0, 0%, 100%);
+}
+.theme-three {
+    --main-background: hsl(268, 75%, 9%);
+    --keypad-background: hsl(268, 71%, 12%);
+    --screen-background: hsl(268, 71%, 12%);
+
+    --dark-key-background: hsl(281, 89%, 26%);
+    --dark-key-shadow: hsl(285, 91%, 52%);
+
+    --red-key-background: hsl(176, 100%, 44%);
+    --red-key-shadow: hsl(177, 92%, 70%);
+
+    --grayish-background: hsl(268, 47%, 21%);
+    --grayish-shadow: hsl(290, 70%, 36%);
+
+    --text-dark:hsl(52, 100%, 62%);
+    --text-screen: hsl(52, 100%, 62%);
     --text-white: hsl(0, 0%, 100%);
 }
 body{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--main-background);
+
 }
 .container {
     width: 500px;
-    height: 800px;
     padding: 20px;
-    background-color: var(--main-background);
 }
-.themes{
+.header{
     width: 100%;
     height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-screen);
 }
+.themes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+}
+.logo {
+    font-size: 32px;
+}
+.themes .toggle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 4px;
+    text-align: center;
+}
+.toggle p {
+    translate: 3px;
+}
+.themes .toggle-btn {
+    background-color: var(--screen-background);
+    width: 50px;
+    height: 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 4px;
+}
+.themes .toggle-btn .ball{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--red-key-background);
+}
+
 .screen {
     width: 100%;
     height: 80px;
     margin: 10px 0px;
 }
 .screen p {
-    color: var(--text-white);
+    color: var(--text-screen);
     border-radius: 10px;
     height: 100%;
     background-color: var(--screen-background);
@@ -54,7 +135,6 @@ body{
     align-items: center;
     padding: 0px 10px;
     font-size: 32px;
-    font-weight: bold;
 }
 .buttons {
     color: var(--text-white);
@@ -64,8 +144,10 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-content: space-around;
-    gap: 10px;
+    gap: 0px 20px;
     background-color: var(--keypad-background);
+    position: relative;
+    z-index: 2;
 }
 .buttons div {
     display: flex;
@@ -73,16 +155,24 @@ body{
     align-items: center;
     border-radius: 10px;
     height: 60px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'poppens';
+    font-size: 32px;
+    position: relative;
 }
-.reset{
-    grid-column: 1/3;
+.buttons div::before {
+    content: "";
+    width: 100%;
+    border-radius: 10px;
+    height: 60px;
+    position: absolute;
+    translate: 0% 5%;
+    z-index: -1;
 }
 .btn {
     background-color: var(--grayish-background);
     color: var(--text-dark);
+}
+.reset{
+    grid-column: 1/3;
 }
 .del,.reset {
     background-color: var(--dark-key-background);
@@ -92,4 +182,19 @@ body{
     background-color: var(--red-key-background);
     grid-column: 3/5;
     color: var(--text-white);
+}
+.buttons .btn::before{
+    background-color: var(--grayish-shadow);
+}
+.del::before, .reset::before{
+    background-color: var(--dark-key-shadow);
+}
+.eq::before{
+    background-color: var(--red-key-shadow);
+}
+.clicked{
+    translate: 0% 5%;
+}
+.clicked::before{
+display: none;
 }
